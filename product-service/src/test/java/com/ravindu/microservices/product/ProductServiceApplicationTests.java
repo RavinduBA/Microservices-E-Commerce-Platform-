@@ -1,4 +1,4 @@
-package com.ravindu.microservices.product;
+ package com.ravindu.microservices.product;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
