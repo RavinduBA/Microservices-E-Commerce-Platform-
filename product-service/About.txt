@@ -1,0 +1,140 @@
+Product Service - Microservices E-Commerce Platform Summary
+
+Overview
+- This Spring Boot microservice handles product management as part of a larger e-commerce platform. It provides REST APIs for creating and retrieving products, with data persisted in MongoDB.
+
+Key Features
+- Create new products
+- List all products
+- MongoDB persistence
+- Docker containerization support
+- Part of a microservices architecture
+
+Technical Stack
+- Framework: Spring Boot
+- Database: MongoDB
+- Build Tool: Maven
+- Containerization: Docker
+- Language: Java
+- Dependencies:
+      -Spring Web (REST APIs)
+      -Spring Data MongoDB
+      -Lombok
+      -Spring Test & Testcontainers
+
+API Endpoints
+POST /api/product - Create a new product
+GET /api/product - Retrieve all products
+
+Data Model
+Product {
+    id: String          // MongoDB generated ID
+    name: String        // Product name
+    description: String // Product description
+    price: BigDecimal  // Product price
+}
+
+Role in Microservices Architecture
+- Standalone service focused on product domain
+- Can be deployed independently
+- Designed to integrate with other microservices like:
+- Inventory Service
+- Order Service
+- Cart Service etc.
+
+Containerization
+- Dockerized for consistent deployment
+- Can run alongside other services using Docker Compose
+- MongoDB runs in separate container
+- Services communicate over Docker network
+- This service forms one piece of the larger e-commerce platform, handling all product-related operations while maintaining loose coupling with other services.
+
+
+Running the Service
+- Start Docker Desktop Wait for engine to be running (whale icon solid)
+- Start MongoDB and Service Containers
+ docker compose up -d
+Run the Application, Open in VS Code
+- Run ProductServiceApplication.java
+
+Postman API Collection
+
+1. Create Product
+Method: POST
+URL: http://localhost:8080/api/product
+Headers:
+Content-Type: application/json
+Body (raw JSON):
+{
+    "name": "iPhone 14 Pro",
+    "description": "Latest iPhone model",
+    "price": 999.99
+}
+Expected Response (201 Created):{
+    "id": "65a4b2c8f...",
+    "name": "iPhone 14 Pro",
+    "description": "Latest iPhone model",
+    "price": 999.99
+}
+
+2. Get All Products
+Method: GET
+URL: http://localhost:8080/api/product
+Expected Response (200 OK):
+[
+    {
+        "id": "65a4b2c8f...",
+        "name": "iPhone 14 Pro",
+        "description": "Latest iPhone model",
+        "price": 999.99
+    }
+]
+
+
+TestContainers Integration Tests Overview
+
+Purpose
+- The integration tests use Testcontainers to spin up a real MongoDB container during testing, ensuring tests run against an actual database instance.
+
+How It Works
+
+Container Startup
+- When tests start, Testcontainers:
+- Downloads MongoDB Docker image if needed
+- Starts a MongoDB container
+- Assigns random ports to avoid conflicts
+- Waits for container to be ready
+
+Spring Configuration
+- @ServiceConnection automatically configures Spring's MongoDB connection
+- Tests use real MongoDB instance, not in-memory database
+
+Test Execution
+- Each test method runs against the containerized MongoDB
+- Database is clean for each test run
+- Full integration test with real database operations
+
+Container Cleanup
+- After tests complete, containers are automatically stopped
+- Resources are cleaned up
+
+Running Tests
+
+In VS Code:
+- Ensure Docker Desktop is running
+- Right-click test file and select "Run Tests"
+- Or via terminal: mvn test
+
+Test Output
+- You'll see in VS Code's output:
+- Container startup logs
+- MongoDB connection details
+- Test results
+- Container shutdown logs
+
+Benefits
+Real database testing
+Isolated test environment
+No manual container management
+Consistent across all environments
+No test data cleanup needed
