@@ -1,0 +1,19 @@
+
+In this part, we will cover:
+Building Order Service
+Database migrations using Flyway
+Writing Integration Tests using Test Containers
+
+
+Integration tests are still didnt implemnt for this (refer https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbFhLbklhX0FRcTBlSU5hbXZZODNvMUNMUVpPZ3xBQ3Jtc0tsRjk0dEFCMXhTSlVIcVlBVk5QeEI5VnNMemVvYzYyMDBwdlVfcXdHbFlhSW9STEtreUFuUjZIQTQ4NUNfVWwzQl9YeWVjYklVNEgxUi1GQmdpVjlESGlUQXV1aUxmaklvcXkwR2ljUUlIRUxVUGtvNA&q=https%3A%2F%2Fprogrammingtechie.com%2Farticles%2Fspring-boot-microservices-tutorial-part-2 )
+
+
+
+Dependecies added (Inventory service)
+
+- lombok
+-springweb
+- spring data jpa
+- mysql driver
+- testcontainers
+- flyway migration
