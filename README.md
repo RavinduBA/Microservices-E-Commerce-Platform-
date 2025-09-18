@@ -19,11 +19,11 @@ The application consists of the following services:
 
 ---
 
-## 🎯 Tutorial Series
+## 🎯 Project Roadmap
 
 The project is part of a Spring Boot Microservices tutorial series, covering key concepts and patterns:
 
-| Part | Topic |
+| Step | Topic |
 |------|-------|
 | 1    | Building REST-based applications using Spring Boot 3 |
 | 2    | Synchronous Inter-Service Communication using Spring Cloud OpenFeign |
