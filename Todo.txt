@@ -1,0 +1,1 @@
+- Implmnent Integration tests for inventory service refer the documentation for it 

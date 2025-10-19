@@ -5,14 +5,22 @@ Database migrations using Flyway
 Writing Integration Tests using Test Containers
 
 
+When an order is placed via the API, it is converted to an Order entity and saved to the t_orders table in MySQL using Spring Data JPA. The application connects to MySQL using the configuration in application.properties.
+
+Flyway migrations?
+Flyway migrations are used in this project to automatically manage and version the database schema.
+When the application starts, Flyway checks for migration scripts (like V1__init.sql) and applies them to the database if they haven't been run yet. This ensures the required tables (such as t_orders) are created and the schema stays consistent across different environments and deployments.
+
 Integration tests are still didnt implemnt for this (refer https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbFhLbklhX0FRcTBlSU5hbXZZODNvMUNMUVpPZ3xBQ3Jtc0tsRjk0dEFCMXhTSlVIcVlBVk5QeEI5VnNMemVvYzYyMDBwdlVfcXdHbFlhSW9STEtreUFuUjZIQTQ4NUNfVWwzQl9YeWVjYklVNEgxUi1GQmdpVjlESGlUQXV1aUxmaklvcXkwR2ljUUlIRUxVUGtvNA&q=https%3A%2F%2Fprogrammingtechie.com%2Farticles%2Fspring-boot-microservices-tutorial-part-2 )
 
+
+Whats happen in migration folder with sql files in projects ?
 
 
 Dependecies added (Inventory service)
 
 - lombok
--springweb
+- springweb
 - spring data jpa
 - mysql driver
 - testcontainers

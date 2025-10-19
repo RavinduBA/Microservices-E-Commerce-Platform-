@@ -1,7 +1,8 @@
 Product Service - Microservices E-Commerce Platform Summary
 
 Overview
-- This Spring Boot microservice handles product management as part of a larger e-commerce platform. It provides REST APIs for creating and retrieving products, with data persisted in MongoDB.
+- This Spring Boot microservice handles product management as part of a larger e-commerce platform. 
+- It provides REST APIs for creating and retrieving products, with data persisted in MongoDB.
 
 Key Features
 - Create new products
@@ -23,8 +24,8 @@ Technical Stack
       -Spring Test & Testcontainers
 
 API Endpoints
-POST /api/product - Create a new product
-GET /api/product - Retrieve all products
+- POST /api/product - Create a new product
+- GET /api/product - Retrieve all products
 
 Data Model
 Product {
